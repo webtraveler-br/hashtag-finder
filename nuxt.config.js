@@ -43,7 +43,7 @@ export default {
     credentials: true,
   },
   proxy: {
-    '/api': 'http://localhost:8000',
+    '/api': 'https://hashtag-finder-server.herokuapp.com/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
