@@ -9,7 +9,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - hashtag-finder',
+    titleTemplate: '%s',
     title: 'hashtag-finder',
     htmlAttrs: {
       lang: 'en',

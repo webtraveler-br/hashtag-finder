@@ -6,7 +6,7 @@
           <titleg id="logo" />
         </v-col>
         <v-col cols="12" sm="10">
-          <searchbar />
+          <searchbar ref="searchbar" />
         </v-col>
       </v-row>
     </nav>
@@ -26,7 +26,10 @@
 <script>
 export default {
   mounted() {
-    console.log(this.Tweets)
+    console.log(this.$route.query.hashtag)
+    if (!this.Tweets) {
+      this.$refs.searchbar.submit()
+    }
   },
   computed: {
     Tweets() {
