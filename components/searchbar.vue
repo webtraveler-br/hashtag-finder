@@ -13,7 +13,7 @@
         @focus="displayOn"
         @blur="displayOff"
       ></v-text-field>
-      <div id="history" :style="display ? 'display:inherit' : 'display:none'">
+      <div id="history" v-if="display">
         <button
           class="history-item"
           v-for="hashtag in history.data"
@@ -61,7 +61,7 @@ export default {
       setTimeout(() => (this.display = false), 150)
     },
     displayOn() {
-      setTimeout(() => (this.display = true), 150)
+      setTimeout(() => (this.history.data ? (this.display = true) : null), 150)
     },
     histSearch(hashtag) {
       this.search = hashtag
