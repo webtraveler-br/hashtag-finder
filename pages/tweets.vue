@@ -26,7 +26,6 @@
 <script>
 export default {
   mounted() {
-    console.log(this.$route.query.hashtag)
     if (!this.Tweets) {
       this.$refs.searchbar.submit()
     }
