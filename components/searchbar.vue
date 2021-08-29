@@ -16,7 +16,7 @@
       <div id="history" v-if="display">
         <button
           class="history-item"
-          v-for="hashtag in history.data"
+          v-for="hashtag in history"
           :key="hashtag.hashtag"
           @click="histSearch(hashtag.hashtag)"
         >
@@ -47,7 +47,9 @@ export default {
   }),
 
   async fetch() {
-    this.history = await this.$axios.get('api/search')
+    await this.$axios.get('api/search').then((value) => {
+      this.history = value.data
+    })
   },
 
   created() {
@@ -61,7 +63,7 @@ export default {
       setTimeout(() => (this.display = false), 150)
     },
     displayOn() {
-      setTimeout(() => (this.history.data ? (this.display = true) : null), 150)
+      setTimeout(() => (this.history ? (this.display = true) : null), 150)
     },
     histSearch(hashtag) {
       this.search = hashtag
